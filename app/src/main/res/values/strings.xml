@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Track your tasks</string>
+    <string name="app_info">App information</string>
+    <string name="app_info_details">
+        Authors : Mateusz Ostapko And Mohamed Sabar
+            version:  v1.0  </string>
+
+    <string name="timer">Timer</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="reset">Reset</string>
+</resources>
