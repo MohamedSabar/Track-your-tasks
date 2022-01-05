@@ -7,31 +7,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Mohamed Sabar -->
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="409dp"
-        android:layout_height="601dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Track Your Tasks!"
+        android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/btnNotes"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center_horizontal"
-        android:text="Notes Page"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+        android:layout_height="wrap_content"
+        android:text="Notes and ToDos"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
+    <Button
+        android:id="@+id/btnProjects"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Project List"
+        app:layout_constraintEnd_toEndOf="@+id/btnNotes"
+        app:layout_constraintStart_toStartOf="@+id/btnNotes"
+        app:layout_constraintTop_toBottomOf="@+id/btnNotes" />
+
+    <Button
+        android:id="@+id/btnTimer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Timer"
+        app:layout_constraintEnd_toEndOf="@+id/btnProjects"
+        app:layout_constraintStart_toStartOf="@+id/btnProjects"
+        app:layout_constraintTop_toBottomOf="@+id/btnProjects" />
+
+    <Button
+        android:id="@+id/btnAppInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="App Information"
+        app:layout_constraintEnd_toEndOf="@+id/btnTimer"
+        app:layout_constraintStart_toStartOf="@+id/btnTimer"
+        app:layout_constraintTop_toBottomOf="@+id/btnTimer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
