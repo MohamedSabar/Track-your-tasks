@@ -1,4 +1,4 @@
-package com.example.trackyourtasks;
+package eu.trackyourtasks.trackyourtasks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,7 +7,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
+
+import eu.trackyourtasks.trackyourtasks.R;
+
 import java.util.HashSet;
+
 // @Mohamed Sabar
 public class NoteEditorActivity extends AppCompatActivity {
     int noteId;

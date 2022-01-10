@@ -1,4 +1,4 @@
-package com.example.trackyourtasks;
+package eu.trackyourtasks.trackyourtasks;
 
 import org.junit.Test;
 

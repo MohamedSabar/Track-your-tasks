@@ -1,8 +1,10 @@
-package com.example.trackyourtasks;
+package eu.trackyourtasks.trackyourtasks;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import eu.trackyourtasks.trackyourtasks.R;
 
 public class info extends AppCompatActivity {
 
