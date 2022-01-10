@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.trackyourtasks">
+    package="eu.trackyourtasks.trackyourtasks">
 
     <application
         android:allowBackup="true"
@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrackYourTasks">
         <activity
-            android:name=".ProjectsList"
+            android:name="eu.trackyourtasks.trackyourtasks.ProjectsList"
             android:exported="true" />
         <activity
-            android:name=".info"
+            android:name="eu.trackyourtasks.trackyourtasks.info"
             android:exported="false" />
         <activity
-            android:name=".NoteEditorActivity"
+            android:name="eu.trackyourtasks.trackyourtasks.NoteEditorActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="eu.trackyourtasks.trackyourtasks.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,10 +28,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TimerActivity"
+            android:name="eu.trackyourtasks.trackyourtasks.TimerActivity"
             android:exported="true"></activity>
         <activity
-            android:name=".To_Do_list"
+            android:name="eu.trackyourtasks.trackyourtasks.To_Do_list"
             android:exported="true"></activity>
     </application>
 

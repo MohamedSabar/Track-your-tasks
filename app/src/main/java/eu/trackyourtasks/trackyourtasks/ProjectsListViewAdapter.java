@@ -1,4 +1,4 @@
-package com.example.trackyourtasks;
+package eu.trackyourtasks.trackyourtasks;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.trackyourtasks.R;
+import eu.trackyourtasks.trackyourtasks.R;
 
 import java.util.List;
 

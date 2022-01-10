@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2EBA8"
-    tools:context=".NoteEditorActivity">
+    tools:context="eu.trackyourtasks.trackyourtasks.NoteEditorActivity">
 
     <!-- Mohamed Sabar -->
 

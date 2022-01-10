@@ -1,4 +1,4 @@
-package com.example.trackyourtasks;
+package eu.trackyourtasks.trackyourtasks;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import eu.trackyourtasks.trackyourtasks.R;
 
 import java.util.ArrayList;
 // @Mohamed Sabar
