@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         btnProjectList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, To_Do_list.class));
+                startActivity(new Intent(MainActivity.this, ProjectsList.class));
             }
         });
 

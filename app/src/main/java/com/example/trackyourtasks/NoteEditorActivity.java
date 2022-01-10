@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashSet;
+
 // @Mohamed Sabar
 public class NoteEditorActivity extends AppCompatActivity {
     int noteId;
