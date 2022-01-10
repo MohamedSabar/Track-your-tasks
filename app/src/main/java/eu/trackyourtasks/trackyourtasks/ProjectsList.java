@@ -19,7 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import eu.trackyourtasks.trackyourtasks.R;
 
@@ -31,9 +35,13 @@ public class ProjectsList extends AppCompatActivity {
     ProjectsListViewAdapter adapter;
 
     private FirebaseFirestore mDatabase;
+    private CollectionReference projectsCollectionRef;
     private String KEY_TITLE = "projectTitle";
     private String KEY_TIME = "projectTime";
-
+    private String KEY_CREATED_AT = "projectCreatedAt";
+    private ArrayList<String> projectsTitles = new ArrayList<>();
+    private ArrayList<String> projectsTimes = new ArrayList<>();
+    private ArrayList<String> projectsIds = new ArrayList<>();
     Button addNewProjectBtn;
 
     @Override
@@ -41,31 +49,67 @@ public class ProjectsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects_list);
         mDatabase = FirebaseFirestore.getInstance();
+        projectsCollectionRef = mDatabase.collection("projects");
+
         addNewProjectBtn = (Button) findViewById(R.id.newProjectButton);
-
-        setOnClickListeners();
-
-        // data to populate the RecyclerView with
-        ArrayList<String> projects = new ArrayList<>();
-        projects.add("Horse");
-        projects.add("Cow");
-        projects.add("Camel");
-        projects.add("Sheep");
-        projects.add("Goat");
-
-        // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.projectsListView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ProjectsListViewAdapter(this, projects);
-        recyclerView.setAdapter(adapter);
-    }
-
-    private void setOnClickListeners() {
         addNewProjectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ProjectsList.this, SingleProjectCreate.class));
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!projectsTitles.isEmpty()) {
+            projectsTitles = new ArrayList<>();
+        }
+        getProjectsFromDatabase();
+    }
+
+    private void getProjectsFromDatabase() {
+        projectsCollectionRef.orderBy(KEY_CREATED_AT, Query.Direction.DESCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                    projectsIds.add(documentSnapshot.getId().toString());
+                    projectsTitles.add(documentSnapshot.getData().get(KEY_TITLE).toString());
+                    projectsTimes.add(timeOrHyphen(documentSnapshot.getData().get(KEY_TIME).toString()));
+                }
+                setUpRecyclerView();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+
+    private void setUpRecyclerView() {
+        RecyclerView recyclerView = findViewById(R.id.projectsListView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ProjectsListViewAdapter(this, projectsTitles, projectsTimes);
+        recyclerView.setAdapter(adapter);
+        adapter.setClickListener(new ProjectsListViewAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent i = new Intent(ProjectsList.this, SingleProject.class);
+                i.putExtra("projectTitle", projectsTitles.get(position));
+                i.putExtra("projectTime", projectsTimes.get(position));
+                i.putExtra("projectId", projectsIds.get(position));
+                startActivity(i);
+            }
+        });
+    }
+
+    private String timeOrHyphen(String time) {
+        if (time.equals("")) {
+            return "-";
+        } else {
+            return time;
+        }
     }
 }

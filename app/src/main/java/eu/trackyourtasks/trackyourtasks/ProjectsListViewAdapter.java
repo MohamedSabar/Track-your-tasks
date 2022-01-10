@@ -1,6 +1,7 @@
 package eu.trackyourtasks.trackyourtasks;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +15,16 @@ import java.util.List;
 
 public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<String> mTitle;
+    private List<String> mTime;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    ProjectsListViewAdapter(Context context, List<String> data) {
+    ProjectsListViewAdapter(Context context, List<String> title, List<String> time) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.mTitle = title;
+        this.mTime = time;
     }
 
     // inflates the row layout from xml when needed
@@ -34,24 +37,27 @@ public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListVi
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        String title = mTitle.get(position);
+        String time = mTime.get(position);
+        holder.timeTxt.setText(time);
+        holder.titleTxt.setText(title);
     }
 
     // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mTitle.size();
     }
-
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView titleTxt;
+        TextView timeTxt;
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.projectsListViewRow);
+            titleTxt = itemView.findViewById(R.id.projectsListViewRowTitleTxt);
+            timeTxt = itemView.findViewById(R.id.projectsListViewRowTimeTxt);
             itemView.setOnClickListener(this);
         }
 
@@ -63,7 +69,7 @@ public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListVi
 
     // convenience method for getting data at click position
     String getItem(int id) {
-        return mData.get(id);
+        return mTitle.get(id);
     }
 
     // allows clicks events to be caught

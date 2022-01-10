@@ -3,6 +3,7 @@ package eu.trackyourtasks.trackyourtasks;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,7 @@ public class SingleProjectCreate extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 writeProjectDataToDatabase(projectTitleInput.getText().toString(), projectTimeInput.getText().toString());
+                startActivity(new Intent(SingleProjectCreate.this, ProjectsList.class));
             }
         });
     }
@@ -48,10 +50,12 @@ public class SingleProjectCreate extends AppCompatActivity {
     public void writeProjectDataToDatabase(String title, String time) {
         String KEY_TITLE = "projectTitle";
         String KEY_TIME = "projectTime";
+        String KEY_CREATED_AT = "projectCreatedAt";
 
         Map<String, Object> project = new HashMap<>();
         project.put(KEY_TITLE, title);
         project.put(KEY_TIME, time);
+        project.put(KEY_CREATED_AT, System.currentTimeMillis());
 
         mDatabase.collection("projects").document().set(project)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
