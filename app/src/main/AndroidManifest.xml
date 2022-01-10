@@ -39,6 +39,9 @@
         <activity
             android:name=".To_Do_list"
             android:exported="true" />
+        <activity
+            android:name=".NotesList"
+            android:exported="true" />
     </application>
 
 </manifest>

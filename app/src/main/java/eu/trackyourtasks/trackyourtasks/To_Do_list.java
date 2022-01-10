@@ -69,5 +69,4 @@ public class To_Do_list extends AppCompatActivity {
             }
         });
     }
-
 }

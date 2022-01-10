@@ -1,59 +1,107 @@
 package eu.trackyourtasks.trackyourtasks;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import eu.trackyourtasks.trackyourtasks.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
+
 
 // @Mohamed Sabar
 public class NoteEditorActivity extends AppCompatActivity {
-    int noteId;
+    private String noteContent;
+    private String noteTitle;
+    private String noteId;
+
+    private FirebaseFirestore mDatabase;
+
+    EditText noteContentTxt;
+    EditText noteTitleTxt;
+
+    Button saveNoteBtn;
+    Button deleteNoteBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_editor);
+        mDatabase = FirebaseFirestore.getInstance();
 
-        EditText editText = findViewById(R.id.editText);
+        noteContentTxt = (EditText) findViewById(R.id.noteContentInput);
+        noteTitleTxt = (EditText) findViewById(R.id.noteTitleTxt);
 
-        Intent intent = getIntent();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            noteContent = extras.getString("noteContent");
+            noteTitle = extras.getString("noteTitle");
+            noteId = extras.getString("noteId");
 
-        noteId = intent.getIntExtra("noteId", -1);
-        if (noteId != -1) {
-            editText.setText(MainActivity.notes.get(noteId));
-        } else {
-
-            MainActivity.notes.add("");
-            noteId = MainActivity.notes.size() - 1;
-            MainActivity.arrayAdapter.notifyDataSetChanged();
-
+            noteTitleTxt.setText(noteTitle);
+            noteContentTxt.setText(noteContent);
         }
 
-        editText.addTextChangedListener(new TextWatcher() {
+        saveNoteBtn = (Button) findViewById(R.id.btnSaveNote);
+        saveNoteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                MainActivity.notes.set(noteId, String.valueOf(charSequence));
-                MainActivity.arrayAdapter.notifyDataSetChanged();
-
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.notes", Context.MODE_PRIVATE);
-                HashSet<String> set = new HashSet(MainActivity.notes);
-                sharedPreferences.edit().putStringSet("notes", set).apply();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
+            public void onClick(View view) {
+                try {
+                    saveNoteChanges();
+                } catch (Exception e) {
+                    createNewNote(noteTitleTxt.getText().toString(), noteContentTxt.getText().toString());
+                }
+                finally {
+                    finish();
+                }
             }
         });
+
+        deleteNoteBtn = (Button) findViewById(R.id.btnDeleteNote);
+        deleteNoteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              removeNote();
+            }
+        });
+    }
+
+
+    private void saveNoteChanges() {
+            mDatabase.collection("notes").document(noteId).update("noteTitle", noteTitleTxt.getText().toString());
+            mDatabase.collection("notes").document(noteId).update("noteContent", noteContentTxt.getText().toString());
+            mDatabase.collection("notes").document(noteId).update("noteCreatedAt", System.currentTimeMillis());
+        }
+
+    private void createNewNote(String title, String content) {
+        Map<String, Object> project = new HashMap<>();
+        project.put("noteTitle", title);
+        project.put("noteContent", content);
+        project.put("noteCreatedAt", System.currentTimeMillis());
+
+        mDatabase.collection("notes").document().set(project)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                    }
+                });
+    }
+
+
+    private void removeNote() {
+        mDatabase.collection("notes").document(noteId).delete();
+        finish();
     }
 }

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="eu.trackyourtasks.trackyourtasks.MainActivity">
 
     <TextView
         android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Track Your Tasks!"
+        android:textAlignment="center"
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,27 +22,36 @@
         android:id="@+id/btnNotes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Notes and ToDos"
+        android:text="Notes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+
+    <Button
+        android:id="@+id/btnTodos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ToDos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNotes" />
 
     <Button
         android:id="@+id/btnProjects"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Project List"
-        app:layout_constraintEnd_toEndOf="@+id/btnNotes"
-        app:layout_constraintStart_toStartOf="@+id/btnNotes"
-        app:layout_constraintTop_toBottomOf="@+id/btnNotes" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTodos" />
 
     <Button
         android:id="@+id/btnTimer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Timer"
-        app:layout_constraintEnd_toEndOf="@+id/btnProjects"
-        app:layout_constraintStart_toStartOf="@+id/btnProjects"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnProjects" />
 
     <Button
@@ -49,7 +59,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="App Information"
-        app:layout_constraintEnd_toEndOf="@+id/btnTimer"
-        app:layout_constraintStart_toStartOf="@+id/btnTimer"
-        app:layout_constraintTop_toBottomOf="@+id/btnTimer" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
