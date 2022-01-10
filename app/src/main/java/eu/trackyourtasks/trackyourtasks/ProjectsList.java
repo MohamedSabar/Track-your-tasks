@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,17 +29,21 @@ import java.util.Map;
 
 public class ProjectsList extends AppCompatActivity {
     ProjectsListViewAdapter adapter;
+
     private FirebaseFirestore mDatabase;
     private String KEY_TITLE = "projectTitle";
     private String KEY_TIME = "projectTime";
+
+    Button addNewProjectBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects_list);
         mDatabase = FirebaseFirestore.getInstance();
+        addNewProjectBtn = (Button) findViewById(R.id.newProjectButton);
 
-        readData();
+        setOnClickListeners();
 
         // data to populate the RecyclerView with
         ArrayList<String> projects = new ArrayList<>();
@@ -53,26 +60,12 @@ public class ProjectsList extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    public void readData() {
-        String title = "Tytul";
-        Integer time = 200;
-
-        Map<String, Object> project = new HashMap<>();
-        project.put(KEY_TITLE, title);
-        project.put(KEY_TIME, time);
-
-
-        mDatabase.collection("projects").document().set(project)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                    }
-                });
-
+    private void setOnClickListeners() {
+        addNewProjectBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProjectsList.this, SingleProjectCreate.class));
+            }
+        });
     }
 }
