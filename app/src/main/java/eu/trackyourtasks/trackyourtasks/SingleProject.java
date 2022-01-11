@@ -56,7 +56,7 @@ public class SingleProject extends AppCompatActivity {
         cancelEditProjectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SingleProject.this, ProjectsList.class));
+                finish();
             }
         });
 
@@ -71,13 +71,13 @@ public class SingleProject extends AppCompatActivity {
 
     private void removeProject() {
         mDatabase.collection("projects").document(projectId).delete();
-        startActivity(new Intent(SingleProject.this, ProjectsList.class));
+        finish();
     }
 
     private void saveProjectChanges() {
         mDatabase.collection("projects").document(projectId).update("projectTitle", projectTitleTxt.getText().toString());
         mDatabase.collection("projects").document(projectId).update("projectTime", projectTimeTxt.getText().toString());
         mDatabase.collection("projects").document(projectId).update("projectCreatedAt", System.currentTimeMillis());
-        startActivity(new Intent(SingleProject.this, ProjectsList.class));
+        finish();
     }
 }

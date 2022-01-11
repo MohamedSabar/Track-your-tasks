@@ -42,7 +42,7 @@ public class SingleProjectCreate extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 writeProjectDataToDatabase(projectTitleInput.getText().toString(), projectTimeInput.getText().toString());
-                startActivity(new Intent(SingleProjectCreate.this, ProjectsList.class));
+                finish();
             }
         });
     }
