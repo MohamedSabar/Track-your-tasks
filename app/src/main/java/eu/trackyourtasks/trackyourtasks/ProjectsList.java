@@ -66,6 +66,12 @@ public class ProjectsList extends AppCompatActivity {
         if (!projectsTitles.isEmpty()) {
             projectsTitles = new ArrayList<>();
         }
+        if (!projectsTimes.isEmpty()) {
+            projectsTimes = new ArrayList<>();
+        }
+        if (!projectsIds.isEmpty()) {
+            projectsIds = new ArrayList<>();
+        }
         getProjectsFromDatabase();
     }
 

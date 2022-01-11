@@ -8,9 +8,8 @@
     tools:context="eu.trackyourtasks.trackyourtasks.NoteEditorActivity">
 
     <!-- Mohamed Sabar -->
-
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/noteContentInput"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"
@@ -27,11 +26,37 @@
         android:paddingRight="0dp"
         android:paddingBottom="0dp"
         android:textColorHint="#962222"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitleTxt" />
+
+    <EditText
+        android:id="@+id/noteTitleTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Note Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnSaveNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toTopOf="@id/btnDeleteNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnDeleteNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
