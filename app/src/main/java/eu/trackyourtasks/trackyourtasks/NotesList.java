@@ -67,6 +67,7 @@ public class NotesList extends AppCompatActivity {
         getNotesFromDatabase();
     }
 
+    // @Mateusz Ostapko
     private void getNotesFromDatabase() {
         notesCollectionRef.orderBy(KEY_CREATED_AT, Query.Direction.DESCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override

@@ -89,6 +89,7 @@ public class To_Do_list extends AppCompatActivity {
         });
     }
 
+    // @Mateusz Ostapko
     public void writeTodoDataToDatabase(String title) {
         String KEY_TITLE = "todoTitle";
         String KEY_CREATED_AT = "todoCreatedAt";
@@ -110,6 +111,7 @@ public class To_Do_list extends AppCompatActivity {
                 });
     }
 
+    // @Mateusz Ostapko
     private void getTodosFromDatabase() {
         todosCollectionRef.orderBy(KEY_CREATED_AT, Query.Direction.DESCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -134,6 +136,7 @@ public class To_Do_list extends AppCompatActivity {
         setUpListViewListener();
     }
 
+    // @Mateusz Ostapko
     private void removeTodo(String id) {
         mDatabase.collection("todos").document(String.valueOf(id)).delete();
     }
