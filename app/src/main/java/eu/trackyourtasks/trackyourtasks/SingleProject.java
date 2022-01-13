@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+// @Mateusz Ostapko
+
 public class SingleProject extends AppCompatActivity {
     private String projectTitle;
     private String projectTime;

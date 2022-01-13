@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+// @Mohammed Sabar
 public class NotesListViewAdapter extends RecyclerView.Adapter<NotesListViewAdapter.ViewHolder> {
 
     private List<String> mTitle;
