@@ -30,6 +30,7 @@ public class NoteEditorActivity extends AppCompatActivity {
     Button saveNoteBtn;
     Button deleteNoteBtn;
 
+    // @Mohamed Sabar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,13 +74,13 @@ public class NoteEditorActivity extends AppCompatActivity {
         });
     }
 
-
+// @Mateusz Ostapko
     private void saveNoteChanges() {
             mDatabase.collection("notes").document(noteId).update("noteTitle", noteTitleTxt.getText().toString());
             mDatabase.collection("notes").document(noteId).update("noteContent", noteContentTxt.getText().toString());
             mDatabase.collection("notes").document(noteId).update("noteCreatedAt", System.currentTimeMillis());
         }
-
+// @Mateusz Ostapko
     private void createNewNote(String title, String content) {
         Map<String, Object> project = new HashMap<>();
         project.put("noteTitle", title);
@@ -99,7 +100,7 @@ public class NoteEditorActivity extends AppCompatActivity {
                 });
     }
 
-
+// @Mateusz Ostapko
     private void removeNote() {
         mDatabase.collection("notes").document(noteId).delete();
         finish();
