@@ -8,33 +8,25 @@
     android:background="#FF8A65"
     tools:context="eu.trackyourtasks.trackyourtasks.MainActivity">
 
-    <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Track Your Tasks!"
-        android:textAlignment="center"
-        android:textSize="42sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/btnNotes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#4DD0E1"
         android:text="Notes"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
+        tools:layout_editor_absoluteY="72dp" />
 
     <Button
         android:id="@+id/btnTodos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#4DD0E1"
         android:text="ToDos"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnNotes" />
@@ -43,8 +35,10 @@
         android:id="@+id/btnProjects"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#4DD0E1"
         android:text="Project List"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTodos" />
@@ -53,8 +47,10 @@
         android:id="@+id/btnTimer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:backgroundTint="#4DD0E1"
         android:text="Timer"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnProjects" />
@@ -65,6 +61,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#4DD0E1"
         android:text="App Information"
+        android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

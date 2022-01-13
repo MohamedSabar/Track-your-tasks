@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF8A65"
     tools:context="eu.trackyourtasks.trackyourtasks.info">
 
     <!-- Mohamed Sabar -->
@@ -20,6 +21,7 @@
             android:gravity="center"
             android:singleLine="false"
             android:text="@string/app_info"
+            android:textColor="#FFF176"
             android:textSize="34sp" />
 
         <TextView
@@ -28,6 +30,7 @@
             android:layout_height="601dp"
             android:singleLine="false"
             android:text="@string/app_info_details"
+            android:textColor="#FFF176"
             android:textSize="24sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
