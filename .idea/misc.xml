@@ -5,11 +5,12 @@
       <map>
         <entry key="app/src/main/res/layout/activity_info.xml" value="0.21739130434782608" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21739130434782608" />
-        <entry key="app/src/main/res/layout/activity_note_editor.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_note_editor.xml" value="0.15463977862916956" />
         <entry key="app/src/main/res/layout/activity_notes_list.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/activity_projects_list.xml" value="0.27309782608695654" />
         <entry key="app/src/main/res/layout/activity_single_project.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/activity_single_project_create.xml" value="0.246875" />
+        <entry key="app/src/main/res/layout/activity_timer.xml" value="0.2630208333333333" />
         <entry key="app/src/main/res/layout/activity_to_do_list.xml" value="0.21739130434782608" />
         <entry key="app/src/main/res/layout/notes_list_row.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/project_list_row.xml" value="0.27309782608695654" />

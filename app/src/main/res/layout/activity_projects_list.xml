@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF8A65"
     tools:context="eu.trackyourtasks.trackyourtasks.ProjectsList">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Projects List"
+        android:textColor="#FFF176"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,6 +21,7 @@
         android:id="@+id/newProjectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#4DD0E1"
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +30,7 @@
         android:id="@+id/projectsListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FF8A65"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

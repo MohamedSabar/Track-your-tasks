@@ -5,6 +5,7 @@
     android:id="@+id/MainMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF8A65"
     tools:context="eu.trackyourtasks.trackyourtasks.MainActivity">
 
     <TextView
@@ -22,6 +23,7 @@
         android:id="@+id/btnNotes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Notes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +33,7 @@
         android:id="@+id/btnTodos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="ToDos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +43,7 @@
         android:id="@+id/btnProjects"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Project List"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +53,7 @@
         android:id="@+id/btnTimer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Timer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +63,7 @@
         android:id="@+id/btnAppInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="App Information"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

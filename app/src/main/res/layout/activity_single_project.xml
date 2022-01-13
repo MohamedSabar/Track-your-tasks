@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF8A65"
     tools:context=".SingleProject">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit project"
+        android:textColor="#FFF176"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Title:" />
+            android:text="Title:"
+            android:textColor="#FFF176" />
 
         <EditText
             android:id="@+id/changeProjectTitleInput"
@@ -38,7 +41,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Enter project title"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FFF176"
+            android:textColorHint="#DCE775" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,7 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Time already spent" />
+            android:text="Time already spent"
+            android:textColor="#FFF176" />
 
         <EditText
             android:id="@+id/changeProjectTimeInput"
@@ -62,13 +68,16 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Enter project time"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FFF176"
+            android:textColorHint="#DCE775" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnRemoveProject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Remove Project"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +87,7 @@
         android:id="@+id/btnSaveProjectChanges"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Save Changes"
         app:layout_constraintBottom_toTopOf="@+id/btnRemoveProject"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +97,7 @@
         android:id="@+id/btnCancelEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Cancel"
         app:layout_constraintBottom_toTopOf="@+id/btnSaveProjectChanges"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FF8A65"
     tools:context=".SingleProjectCreate">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add new project"
+        android:textColor="#FFF176"
         android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +24,8 @@
         android:ems="10"
         android:hint="Project Title"
         android:inputType="textPersonName"
+        android:textColor="#FFF176"
+        android:textColorHint="#DCE775"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -32,6 +36,8 @@
         android:ems="10"
         android:hint="Project Time"
         android:inputType="textPersonName"
+        android:textColor="#FFF176"
+        android:textColorHint="#DCE775"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputProjectTitle" />
 
@@ -39,6 +45,7 @@
         android:id="@+id/btnAddSingleProject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#4DD0E1"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
