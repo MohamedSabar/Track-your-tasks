@@ -21,6 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+// @Mohammed Sabar
 public class NotesList extends AppCompatActivity {
     NotesListViewAdapter adapter;
 

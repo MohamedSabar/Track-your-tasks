@@ -13,6 +13,8 @@ import eu.trackyourtasks.trackyourtasks.R;
 
 import java.util.List;
 
+// @Mateusz Ostapko
+
 public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListViewAdapter.ViewHolder> {
 
     private List<String> mTitle;
@@ -20,21 +22,18 @@ public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListVi
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    // data is passed into the constructor
     ProjectsListViewAdapter(Context context, List<String> title, List<String> time) {
         this.mInflater = LayoutInflater.from(context);
         this.mTitle = title;
         this.mTime = time;
     }
 
-    // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.project_list_row, parent, false);
         return new ViewHolder(view);
     }
 
-    // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         String title = mTitle.get(position);
@@ -43,13 +42,11 @@ public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListVi
         holder.titleTxt.setText(title);
     }
 
-    // total number of rows
     @Override
     public int getItemCount() {
         return mTitle.size();
     }
 
-    // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView titleTxt;
         TextView timeTxt;
@@ -67,17 +64,14 @@ public class ProjectsListViewAdapter extends RecyclerView.Adapter<ProjectsListVi
         }
     }
 
-    // convenience method for getting data at click position
     String getItem(int id) {
         return mTitle.get(id);
     }
 
-    // allows clicks events to be caught
     void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
-    // parent activity will implement this method to respond to click events
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
